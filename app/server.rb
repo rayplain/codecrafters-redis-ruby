@@ -26,7 +26,7 @@ class YourRedisServer
       client.puts string_to_regular_string "PONG" if line.include? "PING"
       if line.include? "ECHO"
         client.gets
-        client.puts(string_to_bulk_string(client.gets.chomp)) if line.include? "ECHO"
+        client.puts(string_to_bulk_string(client.gets.strip)) if line.include? "ECHO"
       end
     end
   end
