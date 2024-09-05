@@ -37,7 +37,7 @@ class YourRedisServer
   end
 
   def string_to_bulk_string(string)
-    "$#{string.bytesize}\r\n#{string}"
+    "$#{string.bytesize}\r\n#{string}\r\n"
   end
 
   def parse_command_segments(command)
