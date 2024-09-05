@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2656967-1ceb-442b-a8a0-64380394e564" name="Changes" comment="I bet we're including the returns from the input">
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-    </list>
+    <list default="true" id="b2656967-1ceb-442b-a8a0-64380394e564" name="Changes" comment="I bet we're including the returns from the input -- forgot we need strip instead." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +41,7 @@
     "nodejs_package_manager_path": "npm",
     "ruby.structure.view.model.defaults.configured": "true",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -94,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1725562249489</updated>
       <workItem from="1725562250526" duration="10372000" />
-      <workItem from="1725572658566" duration="1618000" />
+      <workItem from="1725572658566" duration="1923000" />
     </task>
     <task id="LOCAL-00001" summary="Adding client and responding to ping">
       <option name="closed" value="true" />
@@ -144,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725574247770</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="I bet we're including the returns from the input -- forgot we need strip instead.">
+      <option name="closed" value="true" />
+      <created>1725574311586</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1725574311586</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +174,8 @@
     <MESSAGE value="we don't need trailing cariage returns?" />
     <MESSAGE value="Okay so I guess we do" />
     <MESSAGE value="I bet we're including the returns from the input" />
-    <option name="LAST_COMMIT_MESSAGE" value="I bet we're including the returns from the input" />
+    <MESSAGE value="I bet we're including the returns from the input -- forgot we need strip instead." />
+    <option name="LAST_COMMIT_MESSAGE" value="I bet we're including the returns from the input -- forgot we need strip instead." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/codecrafters_redis_ruby@server.rcov" NAME="server Coverage Results" MODIFIED="1725571184620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="codecrafters-redis-ruby" />
