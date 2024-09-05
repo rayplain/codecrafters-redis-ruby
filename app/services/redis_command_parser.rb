@@ -20,14 +20,17 @@ class RedisCommandParser
 
     while array.length < array_length && !lines.empty?
       type = lines.shift
-      case type[0]
-      when '$'
+
+      return nil unless type # Exit if the type is nil
+
+      case type
+      when /^\$/
         element_length = type[1..-1].to_i
         element = lines.shift
-        raise "Protocol error" unless element && element.bytesize == element_length
+        raise "Protocol error: Expected length #{element_length}, got #{element.bytesize}" unless element && element.bytesize == element_length
         array << element
       else
-        raise "Unsupported type: #{type}"
+        raise "Unsupported RESP type: #{type}"
       end
     end
 
