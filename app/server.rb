@@ -11,15 +11,18 @@ class YourRedisServer
 
     # Uncomment this block to pass the first stage
     server = TCPServer.new(@port)
-    client = server.accept
 
     loop do
-      request = client.gets
-      if request.start_with?("*1") && client.gets == "$4\r\n" && client.gets.chomp == "PING"
-        client.puts string_to_regular_string "PONG"
-      else
-        client.puts string_to_regular_string "Unknown Command"
+      client = server.accept
+      Thread.new(client) do |conn|
+        handle_client(conn)
       end
+    end
+  end
+
+  def handle_client(client)
+    while (line = client.gets) do
+      client.puts string_to_regular_string "PONG" if line.include? "PING"
     end
   end
 
