@@ -70,12 +70,20 @@ class YourRedisServer
   end
 
   def handle_set(client, command)
+    key = command[1]
+    value = command[2]
+
     if command.size == 3
-      response = @store.set(command[1], command[2])
-      client.puts string_to_regular_string(response)
+      response = @store.set(key, value)
+    elsif command.size == 5 && command[3].downcase == "px"
+      expiry = command[4].to_i
+      response = @store.set(key, value, expiry)
     else
       client.puts string_to_error_string("ERR wrong number of arguments for 'SET' command")
+      return
     end
+
+    client.puts string_to_regular_string(response)
   end
 
   def handle_get(client, command)
