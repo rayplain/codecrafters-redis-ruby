@@ -1,28 +1,32 @@
 # command_processor.rb
 
 class CommandProcessor
+  VALID_COMMANDS = %w(PING ECHO SET GET DEL).freeze
+
   def initialize(store)
     @store = store
   end
 
   def process_command(client, command)
-    case command.first
-    when "PING"
-      client.puts string_to_regular_string("PONG")
-    when "ECHO"
-      client.puts string_to_bulk_string(command[1])
-    when "SET"
-      handle_set(client, command)
-    when "GET"
-      handle_get(client, command)
-    when "DEL"
-      handle_del(client, command)
+    command_name = command.first.upcase
+
+    if VALID_COMMANDS.include?(command_name)
+      method_name = "handle_#{command_name.downcase}"
+      send(method_name, client, command)
     else
       client.puts string_to_error_string("ERR unknown command")
     end
   end
 
   private
+
+  def handle_ping(client, _command)
+    client.puts string_to_regular_string("PONG")
+  end
+
+  def handle_echo(client, command)
+    client.puts string_to_bulk_string(command[1])
+  end
 
   def handle_set(client, command)
     key = command[1]
@@ -63,6 +67,7 @@ class CommandProcessor
     end
   end
 
+  #TODO: Create a ResponseClass that can handle the formatting
   def string_to_regular_string(string)
     "+#{string}\r\n"
   end
